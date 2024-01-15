@@ -1,5 +1,5 @@
 Flask
 numpy
+nltk
 Gunicorn
 pandas
-nltk
