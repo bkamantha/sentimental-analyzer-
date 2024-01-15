@@ -18,6 +18,17 @@
                         oninput="resizeInput(this)"
                     />
                 </div>
+                <div class="radio-buttons">
+                    <label>
+                        <input type="radio" name="sentimentModel" value="model" checked />
+                        Use Model
+                    </label>
+                    <label>
+                        <input type="radio" name="sentimentModel" value="gpt" />
+                        Use GPT
+                    </label>
+                </div>
+                <div><br /></div>
                 <button type="button" class="btn btn-primary" onclick="analyzeSentiment()">
                     Submit
                 </button>

@@ -10,6 +10,7 @@ function resizeInput(input) {
 
 function analyzeSentiment() {
     const commentInput = document.getElementById("commentInput").value;
+    const sentimentModel = document.querySelector('input[name="sentimentModel"]:checked').value;
 
     // Check if the comment is not empty
     if (commentInput.trim() === "") {
@@ -22,10 +23,12 @@ function analyzeSentiment() {
 
     // Disable the button during the delay and change text to "Analyzing"
     submitButton.disabled = true;
-    submitButton.innerText = "Analyzing..";
+    submitButton.innerText = "Analyzing...";
+
+    // Set the appropriate API endpoint based on the selected sentiment model
+    const apiUrl = sentimentModel === "model" ? "api/predict/" : "/gpt/predict/";
 
     // Simulate API request (replace this with your actual API endpoint)
-    const apiUrl = "api/predict/";
     fetch(apiUrl, {
         method: "POST",
         headers: {
@@ -52,21 +55,32 @@ function analyzeSentiment() {
         });
 }
 
+// script.js
+
 function displayResult(sentiment) {
     const resultContainer = document.getElementById("result");
     const emojisContainer = document.getElementById("emojis");
 
-    // Add emojis based on sentiment
+    // Clear previous content
     emojisContainer.innerHTML = "";
-    if (sentiment === "positive") {
-        emojisContainer.innerHTML = "Positive Sentiment 😃!";
-    } else if (sentiment === "negative") {
-        emojisContainer.innerHTML = "Negative Sentiment 😞!";
+
+    // Check the selected model (based on the radio button)
+    const sentimentModel = document.querySelector('input[name="sentimentModel"]:checked').value;
+
+    if (sentimentModel === "model") {
+        // Display emojis based on sentiment for the model
+        if (sentiment === "positive") {
+            emojisContainer.innerHTML = "Model Response: Positive Sentiment 😃!";
+        } else if (sentiment === "negative") {
+            emojisContainer.innerHTML = "Model Response: Negative Sentiment 😞!";
+        }
+    } else if (sentimentModel === "gpt") {
+        // Display GPT response
+        emojisContainer.innerHTML = `GPT Response: ${sentiment}`;
     }
 
-    // Hide the result after 2 seconds
     setTimeout(() => {
         resultContainer.innerHTML = "";
         emojisContainer.innerHTML = "";
-    }, 10000); // 2 seconds delay
+    }, 15000);
 }

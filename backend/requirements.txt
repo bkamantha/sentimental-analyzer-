@@ -6,3 +6,4 @@ pandas
 regex
 scikit-learn
 scipy
+openai
