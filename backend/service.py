@@ -36,7 +36,7 @@ def preprocessing(text):
             )
         )
         .apply(remove_punctuations)
-        .str.replace("\\d+", "", regex=True)
+        .str.replace("\d+", "", regex=True)
         .apply(lambda x: " ".join(x for x in x.split() if x not in sw))
         .apply(lambda x: " ".join(ps.stem(x) for x in x.split()))
     )
@@ -69,5 +69,4 @@ def process_comment(comment):
     preprocessed_txt = preprocessing(comment)
     vectorized_txt = vectorizer(preprocessed_txt, tokens)
     prediction = get_prediction(vectorized_txt)
-    print(comment, prediction)
     return prediction
