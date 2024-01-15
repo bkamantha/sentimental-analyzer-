@@ -1,0 +1,51 @@
+/* style.css */
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    text-align: center;
+}
+
+#commentInput {
+    width: 80%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    border: 1px solid #007bff; /* Updated border color to a shade of blue */
+    border-radius: 4px;
+    outline: none; /* Remove the default focus outline */
+}
+
+#commentInput:focus {
+    border-color: #0056b3; /* Change border color when the input is focused */
+}
+
+.btn-primary {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #007bff; /* Updated button background color to a shade of blue */
+    color: #ffffff; /* Set text color to white */
+    border: 1px solid #007bff; /* Set border color to match the background color */
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Change button background color on hover */
+    border-color: #0056b3; /* Change border color on hover */
+    color: #ffffff; /* Set text color to white on hover */
+}

@@ -3,47 +3,28 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-eedkqcegqxiFVpKvPr8lAe83Vxg1y1eTOhfJ8x6Zl5C0Vtwn6c7FngOPB1tkbAh3"
-            crossorigin="anonymous"
-        />
-        <title>Sentimental Analiyzer</title>
-        <style>
-            body {
-                height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0;
-            }
-        </style>
+        <title>Sentimental Analyzer</title>
+        <link rel="stylesheet" href="static/style.css" />
     </head>
     <body>
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <form>
-                        <div class="mb-3">
-                            <label for="commentInput" class="form-label">Type a Comment</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="commentInput"
-                                placeholder="Type a comment"
-                            />
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+            <form id="commentForm">
+                <div class="mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="commentInput"
+                        placeholder="Type a comment"
+                    />
                 </div>
-            </div>
+                <button type="button" class="btn btn-primary" onclick="analyzeSentiment()">
+                    Submit
+                </button>
+                <div id="result"></div>
+                <div id="emojis" style="margin-top: 10px"></div>
+            </form>
         </div>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-LYzxwlfLZZBE/ZjfaTNF8ZjFLF8WJs3f9iy3QQpU1Orp7In5N14/oh9UTeVlOi1i"
-            crossorigin="anonymous"
-        ></script>
+        <script src="static/script.js"></script>
     </body>
 </html>
