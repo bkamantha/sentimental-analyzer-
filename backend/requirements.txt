@@ -3,3 +3,6 @@ numpy
 nltk
 Gunicorn
 pandas
+regex
+scikit-learn
+scipy
